@@ -17,14 +17,18 @@ User.init(
         // define username column
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                unique: true
+            }
         },
         // define email column
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                isEmail: true
+                isEmail: true,
+                unique: true
             }
         },
         // define password column
