@@ -20,7 +20,22 @@ async function signupFormHandler(event) {
 
         //check response status
         if (response.ok) {
-            console.log('Success!')
+            // log user in and redirect to homepage after signing up
+            const response = await fetch('/api/users/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email,
+                    password
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (response.ok) {
+                document.location.replace('/');
+            } else {
+                alert(response.statusText);
+            }
+
         } else {
             alert(response.statusText)
         }
