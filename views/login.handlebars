@@ -1,37 +1,43 @@
-
+<div class="container">
 {{!-- login form --}}
-<form class="login-form">
+<div class="row">
+<form class="form-group login-form container col-sm">
+    <h1 class="text-center">Login</h1>
     <div>
         <label for="email-login">email:</label>
-        <input type="text" id="email-login" />
+        <input type="text" id="email-login" class="form-control" />
     </div>
     <div>
         <label for="password-login">password:</label>
-        <input type="password" id="password-login" />
+        <input type="password" id="password-login" class="form-control" />
     </div>
-    <div>
-        <button type="submit">login</button>
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-secondary btn-lg">login</button>
     </div>
 </form>
 
+
 {{!-- signup form --}}
-<form class="signup-form">
+
+<form class="form-group signup-form container col-sm">
+    <h1 class="text-center">Sign Up</h1>
     <div>
         <label for="username-signup">username:</label>
-        <input type="text" id="username-signup" />
+        <input type="text" id="username-signup" class="form-control" />
     </div>
     <div>
         <label for="email-signup">email:</label>
-        <input type="text" id="email-signup" />
+        <input type="text" id="email-signup" class="form-control"  />
     </div>
     <div>
         <label for="password-signup">password:</label>
-        <input type="password" id="password-signup" />
+        <input type="password" id="password-signup" class="form-control" />
     </div>
-    <div>
-        <button type="submit">signup</button>
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-secondary btn-lg">signup</button>
     </div>
 </form>
-
+</div>
+</div>
 {{!-- import javascript files --}}
 <script src="/javascript/login.js"></script>

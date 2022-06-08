@@ -1,1 +1,17 @@
-<div>You are on the homepage</div>
+
+  {{#each posts}}
+  <div class="my-2"></div>
+    <div class="card" style="width: 90%">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">By:
+          {{user.username}}
+          on
+          {{created_at}}</h6>
+        <p class="card-text">{{post_text}}</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
