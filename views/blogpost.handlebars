@@ -23,15 +23,17 @@
 <p>No comments yet. Want to be the first?</p>
 {{/if}}
 {{#if loggedIn}}
-  <div class="form-group">
-    <textarea class="form-control my-3" id="exampleFormControlTextarea1" rows="3" placeholder="Leave a comment"></textarea>
+  <form class="form-group comment-form">
+    <textarea class="form-control my-3" name='comment-body' id="exampleFormControlTextarea1" id="comment" rows="3" placeholder="Leave a comment"></textarea>
     <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
+  </form>
   {{else}}
-  <div class="form-group">
-    <textarea class="form-control my-3" id="exampleFormControlTextarea1" rows="3" placeholder="You must sign in to leave a comment" disabled></textarea>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
+  <form class="form-group">
+    <textarea class="form-control my-3" name='comment-body' id="exampleFormControlTextarea1" rows="3" placeholder="You must sign in to leave a comment" disabled></textarea>
+    <button type="submit" class="btn btn-disabled comment-btn">Submit</button>
+  </form>
 {{/if}}
 </div>
 
+{{!-- import javascript files --}}
+<script src="/javascript/comment.js"></script>
