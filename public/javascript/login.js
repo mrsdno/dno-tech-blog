@@ -3,16 +3,14 @@ async function signupFormHandler(event) {
 
     // collect username, email, and password from form
     const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();;
     const password = document.querySelector('#password-signup').value.trim();;
 
     // conditional to ensure that all fields have values before making the post request
-    if (username && email && password) {
+    if (username && password) {
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
                 username,
-                email,
                 password
             }),
             headers: { 'Content-Type': 'application/json' }
@@ -24,7 +22,7 @@ async function signupFormHandler(event) {
             const response = await fetch('/api/users/login', {
                 method: 'POST',
                 body: JSON.stringify({
-                    email,
+                    username,
                     password
                 }),
                 headers: { 'Content-Type': 'application/json' }
@@ -46,11 +44,11 @@ async function loginFormHandler(event) {
 
     event.preventDefault();
     
-    const email = document.querySelector('#email-login').value.trim();
+    const username = document.querySelector('#user-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
     // conditional to ensure that all fields have values before making the post request
-    if (email && password) {
+    if (username && password) {
         const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({
