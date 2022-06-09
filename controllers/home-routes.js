@@ -6,6 +6,42 @@ router.get("/", (req, res) => {
     attributes: ["id", "post_text", "title", "created_at"],
     include: [
       {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("homepage", {
+        // pass data to handlebars page
+        posts,
+        loggedIn: req.session.loggedIn,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
+});
+
+router.get("/blogpost/:id", (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "post_text", "title", "created_at"],
+    include: [
+      {
         model: Comment,
         attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
@@ -18,27 +54,19 @@ router.get("/", (req, res) => {
         attributes: ["username"],
       },
     ],
-  }).then((dbPostData) => {
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
-    res.render("homepage", {
-      // pass data to handlebars page
-        posts,
-      loggedIn: req.session.loggedIn,
-    });
   })
-      .catch((err) => {
-          console.log(err);
-          res.status(500).json(err);
+    .then((dbPostData) => {
+      const post = dbPostData.get({ plain: true });
+      res.render("blogpost", {
+        // pass data to handlebars page
+        post,
+        loggedIn: req.session.loggedIn,
+      });
     })
-});
-
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-
-  res.render("login");
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;

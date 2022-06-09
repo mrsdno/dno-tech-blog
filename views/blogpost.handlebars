@@ -1,0 +1,37 @@
+{{!-- blog post --}}
+<div class="m-3">
+<h1 class="text-center my-3">{{post.title}}</h1>
+<h6 class="card-subtitle mb-2 text-muted my-3 text-center">
+    By: {{post.user.username}} on {{post.created_at}}
+</h6>
+<p class="card-text">{{post.post_text}}</p>
+
+
+{{!-- comment section --}}
+<div class="alert alert-secondary mt-4">
+    <h4 class="alert-heading">Comments</h4>
+    <hr>
+{{#if post.comments}}
+{{#each post.comments}}
+    <p>{{comment_text}}</p>
+    <small>
+    <p>From {{user.username}} on {{created_at}}</p>
+    <hr>
+    </small>
+{{/each}}
+{{else}}
+<p>No comments yet. Want to be the first?</p>
+{{/if}}
+{{#if loggedIn}}
+  <div class="form-group">
+    <textarea class="form-control my-3" id="exampleFormControlTextarea1" rows="3" placeholder="Leave a comment"></textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  {{else}}
+  <div class="form-group">
+    <textarea class="form-control my-3" id="exampleFormControlTextarea1" rows="3" placeholder="You must sign in to leave a comment" disabled></textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+{{/if}}
+</div>
+
