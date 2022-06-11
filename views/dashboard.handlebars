@@ -1,0 +1,33 @@
+<h2 class="display-2 text-center">{{username}}'s Posts</h2>
+
+
+<div class='text-center'>
+<button type="button" id='show-form' class="btn btn-outline-primary my-3 p-3">Create a New Post</button>
+<form class='text-center new-post'> 
+        <div id="post-form" class="d-none">
+            <input type="text" id="post-title" name="post-title" placeholder="title" />
+            <textarea class="form-control my-3" name='post-body' id="exampleFormControlTextarea1" id="comment" rows="3" placeholder="Type your post here..."></textarea>
+            <button type="submit" class="btn btn-primary">Submit Post</button>
+        </div>
+</form>
+</div>
+{{#if posts.length}}
+<section>
+
+        {{#each posts as |post|}}
+            {{!-- blog post --}}
+            <div class="m-3 p-2 border">
+            <h1 class="my-3">{{post.title}}</h1>
+            <h6 class="card-subtitle mb-2 text-muted my-3">
+                {{post.created_at}}
+            </h6>
+            <p class="card-text">{{post.post_text}}</p>
+            </div>
+
+
+        {{/each}}
+
+</section>
+{{/if}}
+
+<script src="/javascript/dashboard.js"></script>
