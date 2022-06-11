@@ -53,3 +53,29 @@ async function postBlogPost(event) {
 }
 
 document.querySelector(".new-post").addEventListener("submit", postBlogPost);
+
+// delete button
+
+async function deleteBlogPost(event) {
+  event.preventDefault();
+  const btnText = this.innerText
+  const id = btnText.charAt(btnText.length - 1);
+
+  if(confirm('Are you sure you want to delete this post?') == true) {
+    const response = await fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  }
+}
+
+
+document.querySelector("#delete-btn").addEventListener("click", deleteBlogPost);
