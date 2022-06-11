@@ -24,7 +24,6 @@ showForm.addEventListener("click", function () {
 
 async function postBlogPost(event) {
   event.preventDefault();
-  console.log("you clicked the button");
 
   const post_text = document
     .querySelector('textarea[name="post-body"]')
@@ -53,3 +52,37 @@ async function postBlogPost(event) {
 }
 
 document.querySelector(".new-post").addEventListener("submit", postBlogPost);
+
+// delete button
+
+async function deleteBlogPost(event) {
+  event.preventDefault();
+  const btnText = this.innerText
+  const id = btnText.charAt(btnText.length - 1);
+
+  if(confirm('Are you sure you want to delete this post?') == true) {
+    const response = await fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  }
+}
+
+
+document.querySelector("#delete-btn").addEventListener("click", deleteBlogPost);
+
+// update blog post
+
+function updateBlogPost() {
+  console.log(this.nextSibling.innerText);
+}
+
+document.querySelector("#update-btn").addEventListener("click", updateBlogPost);
