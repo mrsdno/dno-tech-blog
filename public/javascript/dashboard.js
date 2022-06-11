@@ -24,7 +24,6 @@ showForm.addEventListener("click", function () {
 
 async function postBlogPost(event) {
   event.preventDefault();
-  console.log("you clicked the button");
 
   const post_text = document
     .querySelector('textarea[name="post-body"]')
@@ -79,3 +78,11 @@ async function deleteBlogPost(event) {
 
 
 document.querySelector("#delete-btn").addEventListener("click", deleteBlogPost);
+
+// update blog post
+
+function updateBlogPost() {
+  console.log(this.nextSibling.innerText);
+}
+
+document.querySelector("#update-btn").addEventListener("click", updateBlogPost);
