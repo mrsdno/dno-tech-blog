@@ -6,7 +6,7 @@
 <form class='text-center new-post'> 
         <div id="post-form" class="d-none">
             <input type="text" id="post-title" name="post-title" placeholder="title" />
-            <textarea class="form-control my-3" name='post-body' id="exampleFormControlTextarea1" id="comment" rows="3" placeholder="Type your post here..."></textarea>
+            <textarea class="form-control my-3 blog-text" name='post-body' rows="3" placeholder="Type your post here..."></textarea>
             <button type="submit" class="btn btn-primary">Submit Post</button>
         </div>
 </form>
@@ -22,10 +22,9 @@
                  {{post.created_at}}
             </h6>
             <p class="card-text">{{post.post_text}}</p>
-            <button class="btn btn-link text-left" id="delete-btn">Delete Post #{{post.id}}</button>  <button class="btn btn-link text-left" id="update-btn">Update</button>
+            <button class="btn btn-link text-left delete-btn" id="delete-btn">Delete Post #{{post.id}}</button>  
+            <a href="/dashboard/{{post.id}}" class="btn btn-link text-left" id="update-btn">Update</a>
             </div>
-
-
         {{/each}}
 
 </section>

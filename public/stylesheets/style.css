@@ -1,0 +1,11 @@
+.blog-text {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    height: 100px;
+}
+
+#post-text {
+    height: 100px;
+    width: 800px;
+}

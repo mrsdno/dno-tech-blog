@@ -69,45 +69,5 @@ router.get("/blogpost/:id", (req, res) => {
     });
 });
 
-router.get('/dashboard', (req, res) => {
-    if (!req.session.loggedIn) {
-      res.redirect('/login');
-    }
-
-  Post.findAll({
-    where: {
-      user_id: req.session.user_id,
-    },
-    attributes: ["id", "post_text", "title", "created_at"],
-    include: [
-      {
-        model: User,
-        attributes: ["username"],
-      },
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-    ],
-  })
-    .then((dbPostData) => {
-      //serialize the data first
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      const username = req.session.username
-      res.render("dashboard", {
-        username,
-        posts,
-        loggedIn: true
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-}) 
 
 module.exports = router;

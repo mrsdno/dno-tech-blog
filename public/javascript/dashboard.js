@@ -1,5 +1,6 @@
 // show/hide form with button
 
+
 const showForm = document.getElementById("show-form");
 const formElement = document.getElementById('post-form');
 
@@ -55,7 +56,11 @@ document.querySelector(".new-post").addEventListener("submit", postBlogPost);
 
 // delete button
 
+
+
+
 async function deleteBlogPost(event) {
+  console.log('clicked delete button')
   event.preventDefault();
   const btnText = this.innerText
   const id = btnText.charAt(btnText.length - 1);
@@ -76,13 +81,8 @@ async function deleteBlogPost(event) {
   }
 }
 
+deleteBtns = document.getElementsByClassName('delete-btn');
 
-document.querySelector("#delete-btn").addEventListener("click", deleteBlogPost);
-
-// update blog post
-
-function updateBlogPost() {
-  console.log(this.nextSibling.innerText);
+for (var i = 0; i < deleteBtns.length; i++) {
+  deleteBtns[i].addEventListener("click", deleteBlogPost);
 }
-
-document.querySelector("#update-btn").addEventListener("click", updateBlogPost);
