@@ -1,5 +1,7 @@
 # dno-tech-blog
 
+![screenshot](./assets/screenshot.JPG)
+
 ## User Story
 
     AS A developer who writes about tech
@@ -8,12 +10,15 @@
 
 ## Table of Contents
 
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
-* [Questions](#questions)
+- [dno-tech-blog](#dno-tech-blog)
+  - [User Story](#user-story)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Questions](#questions)
 
 ## Description
 
