@@ -1,7 +1,11 @@
+<div class='text-center my-3 display-4'>
+<button class="btn btn-lg" id="login-btn">Login?</button> or <button class="btn btn-lg" id="signup-btn">Sign Up?</button>
+</div>
+
 <div class="container">
 {{!-- login form --}}
 <div class="row">
-<form class="form-group login-form container col-sm">
+<form id='login-form' class="form-group login-form container col-sm d-none">
     <h1 class="text-center">Login</h1>
     <div>
         <label for="user-login">username:</label>
@@ -19,7 +23,7 @@
 
 {{!-- signup form --}}
 
-<form class="form-group signup-form container col-sm">
+<form id="signup-form" class="form-group signup-form container col-sm d-none">
     <h1 class="text-center">Sign Up</h1>
     <div>
         <label for="username-signup">username:</label>
@@ -30,7 +34,7 @@
         <input type="password" id="password-signup" class="form-control" />
     </div>
     <div class="text-center mt-3">
-        <button type="submit" class="btn btn-secondary btn-lg">signup</button>
+        <button type="submit" id='signup-btn' class="btn btn-secondary btn-lg">signup</button>
     </div>
 </form>
 </div>

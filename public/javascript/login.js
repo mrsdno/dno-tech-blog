@@ -1,3 +1,41 @@
+// show/hide form with button
+
+
+const showLogin = document.getElementById("login-btn");
+const loginFormElement = document.getElementById('login-form');
+
+showLogin.addEventListener("click", function () {
+
+    let formStatus = loginFormElement.classList.contains('d-none');
+    if (formStatus) {
+        loginFormElement.classList.remove('d-none');
+        showLogin.innerText = 'Hide Login Form';
+    }
+    else {
+        loginFormElement.classList.add('d-none');
+        showLogin.innerText = 'Login'
+    }
+})
+
+const showSignUp = document.getElementById("signup-btn");
+const signUpFormElement = document.getElementById('signup-form');
+
+showSignUp.addEventListener("click", function () {
+
+    let formStatus = signUpFormElement.classList.contains('d-none');
+    if (formStatus) {
+        signUpFormElement.classList.remove('d-none');
+        showSignUp.innerText = 'Hide signup Form';
+    }
+    else {
+        signUpFormElement.classList.add('d-none');
+        showSignUp.innerText = 'SignUp'
+    }
+})
+
+
+
+
 async function signupFormHandler(event) {
     event.preventDefault();
 
